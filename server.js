@@ -12,12 +12,12 @@ const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
 
-const diseases = require("./data/diseases.json");
-const translations = require("./data/translations.json");
-const quickOptions = require("./data/quickOptions.json");
+const diseases = require("./diseases.json");
+const translations = require("./translations.json");
+const quickOptions = require("./quickOptions.json");
 
 const PORT = process.env.PORT || 3000;
-const FRONTEND_DIR = path.join(__dirname, "frontend");
+const FRONTEND_DIR = __dirname;
 
 const MIME = {
   ".html": "text/html; charset=utf-8",
