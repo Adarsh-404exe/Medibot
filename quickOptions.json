@@ -1,0 +1,10 @@
+[
+  { "key": "cold", "emoji": "🤧", "query": "I have a cold with runny nose and sneezing", "label": { "en": "Cold", "hi": "जुकाम", "es": "Resfriado", "fr": "Rhume" } },
+  { "key": "fever", "emoji": "🌡️", "query": "I have fever", "label": { "en": "Fever", "hi": "बुखार", "es": "Fiebre", "fr": "Fièvre" } },
+  { "key": "headache", "emoji": "🤕", "query": "I have a headache", "label": { "en": "Headache", "hi": "सिरदर्द", "es": "Dolor de cabeza", "fr": "Mal de tête" } },
+  { "key": "cough", "emoji": "😷", "query": "I have a cough", "label": { "en": "Cough", "hi": "खांसी", "es": "Tos", "fr": "Toux" } },
+  { "key": "sore_throat", "emoji": "🗣️", "query": "I have a sore throat", "label": { "en": "Sore Throat", "hi": "गले में खराश", "es": "Dolor de garganta", "fr": "Mal de gorge" } },
+  { "key": "stomach", "emoji": "🤢", "query": "I have stomach ache and indigestion", "label": { "en": "Stomach Ache", "hi": "पेट दर्द", "es": "Dolor de estómago", "fr": "Mal de ventre" } },
+  { "key": "diarrhea", "emoji": "💧", "query": "I have diarrhea", "label": { "en": "Diarrhea", "hi": "दस्त", "es": "Diarrea", "fr": "Diarrhée" } },
+  { "key": "allergy", "emoji": "🤧", "query": "I have skin allergy and itching", "label": { "en": "Allergy", "hi": "एलर्जी", "es": "Alergia", "fr": "Allergie" } }
+]

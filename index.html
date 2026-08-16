@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MediBot — Your Smart Health Companion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ============ NAVBAR ============ -->
+<header class="navbar">
+  <div class="container navbar__inner">
+    <div class="brand">
+      <span class="brand__pulse"></span>
+      <span class="brand__name">Medi<strong>Bot</strong></span>
+    </div>
+    <nav class="navbar__links">
+      <a href="#features">Features</a>
+      <a href="#how">How it works</a>
+      <a href="#about">About</a>
+    </nav>
+    <div class="navbar__actions">
+      <select id="lang-select-nav" class="lang-select" aria-label="Language"></select>
+      <button class="btn btn--primary" id="nav-chat-btn">Talk to MediBot</button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero__vitals" aria-hidden="true">
+    <svg viewBox="0 0 600 120" preserveAspectRatio="none" class="vitals-line">
+      <polyline points="0,60 60,60 80,20 100,100 120,60 200,60 220,30 240,90 260,60 340,60 360,15 380,105 400,60 600,60" />
+    </svg>
+  </div>
+  <div class="container hero__inner">
+    <div class="hero__text">
+      <p class="eyebrow">🩺 AI HEALTH ASSISTANT</p>
+      <h1 id="hero-title">Meet MediBot, your AI health first-responder</h1>
+      <p class="hero__subtitle" id="hero-subtitle">Describe your symptoms in plain language and get instant, WHO-informed guidance on common illnesses, self-care tips and when to see a doctor.</p>
+      <div class="hero__cta-row">
+        <button class="btn btn--primary btn--lg" id="hero-chat-btn">
+          <span id="hero-cta-text">Chat with MediBot</span> <span>💬</span>
+        </button>
+        <div class="hero__trust">
+          <span>✅ No sign-up</span>
+          <span>🌐 4 languages</span>
+          <span>🔒 Private session</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero__card">
+      <div class="doctor-orb">
+        <span class="doctor-orb__emoji">🧑‍⚕️</span>
+        <span class="doctor-orb__ring"></span>
+      </div>
+      <div class="mock-chat">
+        <div class="mock-bubble mock-bubble--bot">I've had a headache and mild fever since morning 🤕</div>
+        <div class="mock-bubble mock-bubble--user">Got it — that could be a common Flu. Here's some care advice + when to see a doctor.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURES ============ -->
+<section class="section" id="features">
+  <div class="container">
+    <h2 class="section__title" id="features-title">Why MediBot?</h2>
+    <div class="grid grid--4">
+      <div class="card">
+        <div class="card__icon">⚡</div>
+        <h3 id="f1-title">Instant Symptom Check</h3>
+        <p id="f1-desc">Tell us what you're feeling and get relevant, easy-to-understand information in seconds.</p>
+      </div>
+      <div class="card">
+        <div class="card__icon">📖</div>
+        <h3 id="f2-title">Trusted Guidance</h3>
+        <p id="f2-desc">Information aligned with WHO and general medical guidance for everyday illnesses.</p>
+      </div>
+      <div class="card">
+        <div class="card__icon">🌐</div>
+        <h3 id="f3-title">Multilingual</h3>
+        <p id="f3-desc">Chat in English, Hindi, Spanish or French — whichever you're comfortable with.</p>
+      </div>
+      <div class="card">
+        <div class="card__icon">🔒</div>
+        <h3 id="f4-title">Private &amp; Free</h3>
+        <p id="f4-desc">No sign-up required. Your conversation stays in your session only.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="section section--alt" id="how">
+  <div class="container">
+    <h2 class="section__title" id="how-title">How it works</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step__num">01</div>
+        <p id="how1">Open the chat and share your gender &amp; age</p>
+      </div>
+      <div class="step">
+        <div class="step__num">02</div>
+        <p id="how2">Describe your symptoms or pick a quick option</p>
+      </div>
+      <div class="step">
+        <div class="step__num">03</div>
+        <p id="how3">Get instant suggestions for care &amp; medicine</p>
+      </div>
+      <div class="step">
+        <div class="step__num">04</div>
+        <p id="how4">Know when it's time to see a real doctor</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT / DISCLAIMER STRIP ============ -->
+<section class="section" id="about">
+  <div class="container about__inner">
+    <div class="about__card">
+      <h3>⚠️ Important</h3>
+      <p id="footer-disclaimer">MediBot is an educational tool and does not replace professional medical care. Always consult a qualified doctor for serious or persistent symptoms.</p>
+    </div>
+    <div class="about__card">
+      <h3>🌍 Source of Information</h3>
+      <p>Guidance shown in this app is written in line with general WHO public-health information and common OTC self-care practices for everyday, non-emergency conditions.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <span>© 2026 MediBot</span>
+    <span id="footer-text-2">Not a substitute for professional medical advice.</span>
+  </div>
+</footer>
+
+<!-- ============ FLOATING CHAT BUTTON ============ -->
+<button class="chat-fab" id="chat-fab" aria-label="Open chat">
+  <span class="chat-fab__emoji">🧑‍⚕️</span>
+  <span class="chat-fab__pulse"></span>
+</button>
+
+<!-- ============ CHAT WIDGET ============ -->
+<div class="chat-widget" id="chat-widget" aria-hidden="true">
+  <div class="chat-widget__header">
+    <div class="chat-widget__who">
+      <span class="chat-widget__avatar">🧑‍⚕️</span>
+      <div>
+        <div class="chat-widget__name" id="chat-header-name">MediBot</div>
+        <div class="chat-widget__status" id="chat-header-status">● Online • Here to help</div>
+      </div>
+    </div>
+    <div class="chat-widget__actions">
+      <select id="lang-select-chat" class="lang-select lang-select--dark" aria-label="Language"></select>
+      <button id="restart-chat" title="Restart">↺</button>
+      <button id="close-chat" title="Close">✕</button>
+    </div>
+  </div>
+
+  <div class="chat-widget__body" id="chat-body"></div>
+
+  <div class="chat-widget__quick" id="quick-options-row"></div>
+
+  <div class="chat-widget__typing" id="typing-indicator" hidden>
+    <span class="typing-emoji">🧑‍⚕️</span>
+    <span class="typing-dots"><i></i><i></i><i></i></span>
+    <span id="typing-label">MediBot is thinking</span>
+  </div>
+
+  <form class="chat-widget__input-row" id="chat-form">
+    <input type="text" id="chat-input" autocomplete="off" placeholder="Type your message..." />
+    <button type="submit" class="btn btn--primary" id="send-btn">➤</button>
+  </form>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>

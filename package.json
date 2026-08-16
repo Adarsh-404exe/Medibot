@@ -1,0 +1,13 @@
+{
+  "name": "medibot",
+  "version": "1.0.0",
+  "description": "MediBot - AI health assistant (Glitch-ready, zero dependencies)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": "18.x"
+  },
+  "dependencies": {}
+}

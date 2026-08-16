@@ -1,0 +1,218 @@
+[
+  {
+    "id": "common_cold",
+    "keywords": ["cold", "runny nose", "sneeze", "sneezing", "blocked nose", "stuffy nose", "nasal congestion"],
+    "name": { "en": "Common Cold", "hi": "सामान्य जुकाम", "es": "Resfriado Común", "fr": "Rhume" },
+    "summary": {
+      "en": "A mild viral infection of the nose and throat. Usually harmless and resolves in 7-10 days.",
+      "hi": "नाक और गले का हल्का वायरल संक्रमण। आमतौर पर 7-10 दिनों में ठीक हो जाता है।",
+      "es": "Una infección viral leve de la nariz y la garganta. Generalmente se resuelve en 7-10 días.",
+      "fr": "Une légère infection virale du nez et de la gorge. Se résout généralement en 7 à 10 jours."
+    },
+    "medicines": ["Paracetamol (for mild fever/aches)", "Cetirizine / Antihistamine (for runny nose, sneezing)", "Steam inhalation", "Warm saline gargle", "Vitamin C supplements"],
+    "prevention": {
+      "en": "Wash hands frequently, avoid touching your face, stay hydrated, rest well, and avoid close contact with sick people.",
+      "hi": "बार-बार हाथ धोएं, चेहरे को छूने से बचें, पर्याप्त पानी पिएं, आराम करें और बीमार लोगों के संपर्क से बचें।",
+      "es": "Lávese las manos con frecuencia, evite tocarse la cara, manténgase hidratado, descanse bien.",
+      "fr": "Lavez-vous souvent les mains, évitez de toucher votre visage, restez hydraté et reposez-vous bien."
+    }
+  },
+  {
+    "id": "flu",
+    "keywords": ["flu", "influenza", "body ache", "chills", "high fever", "fatigue", "muscle pain"],
+    "name": { "en": "Influenza (Flu)", "hi": "इन्फ्लूएंजा (फ्लू)", "es": "Gripe", "fr": "Grippe" },
+    "summary": {
+      "en": "A contagious respiratory illness caused by influenza viruses, causing fever, body aches and fatigue.",
+      "hi": "इन्फ्लूएंजा वायरस के कारण होने वाली संक्रामक श्वसन बीमारी, जिसमें बुखार, शरीर में दर्द और थकान होती है।",
+      "es": "Una enfermedad respiratoria contagiosa causada por virus de la influenza, con fiebre y dolores.",
+      "fr": "Une maladie respiratoire contagieuse causée par les virus de la grippe, avec fièvre et courbatures."
+    },
+    "medicines": ["Paracetamol (fever & body pain)", "Plenty of fluids / ORS", "Rest", "Antihistamines for congestion", "Consult doctor if fever exceeds 102°F/39°C for 3+ days"],
+    "prevention": {
+      "en": "Annual flu vaccination, frequent hand washing, avoiding crowded places during outbreaks, covering coughs/sneezes.",
+      "hi": "वार्षिक फ्लू टीकाकरण, बार-बार हाथ धोना, भीड़भाड़ वाली जगहों से बचना, खांसते/छींकते समय मुंह ढकना।",
+      "es": "Vacunación anual contra la gripe, lavado frecuente de manos, evitar lugares concurridos.",
+      "fr": "Vaccination annuelle contre la grippe, lavage fréquent des mains, éviter les endroits bondés."
+    }
+  },
+  {
+    "id": "headache",
+    "keywords": ["headache", "migraine", "head pain", "head ache", "throbbing head"],
+    "name": { "en": "Headache / Migraine", "hi": "सिरदर्द / माइग्रेन", "es": "Dolor de Cabeza / Migraña", "fr": "Mal de Tête / Migraine" },
+    "summary": {
+      "en": "Pain in the head or upper neck, ranging from mild tension headaches to severe migraines.",
+      "hi": "सिर या गर्दन के ऊपरी हिस्से में दर्द, हल्के तनाव सिरदर्द से लेकर गंभीर माइग्रेन तक।",
+      "es": "Dolor en la cabeza o el cuello superior, desde dolores de cabeza leves hasta migrañas severas.",
+      "fr": "Douleur dans la tête ou le haut du cou, allant de légères céphalées de tension à des migraines sévères."
+    },
+    "medicines": ["Paracetamol or Ibuprofen (as per tolerance)", "Rest in a dark, quiet room", "Stay hydrated", "Cold compress on forehead", "Avoid triggers like screens/bright light"],
+    "prevention": {
+      "en": "Maintain regular sleep, stay hydrated, manage stress, limit caffeine, avoid known triggers.",
+      "hi": "नियमित नींद लें, पर्याप्त पानी पिएं, तनाव को नियंत्रित करें, कैफीन सीमित करें।",
+      "es": "Mantenga un sueño regular, manténgase hidratado, controle el estrés, limite la cafeína.",
+      "fr": "Maintenez un sommeil régulier, restez hydraté, gérez le stress, limitez la caféine."
+    }
+  },
+  {
+    "id": "fever",
+    "keywords": ["fever", "high temperature", "hot body", "temperature"],
+    "name": { "en": "Fever", "hi": "बुखार", "es": "Fiebre", "fr": "Fièvre" },
+    "summary": {
+      "en": "A temporary rise in body temperature, often a sign the body is fighting an infection.",
+      "hi": "शरीर के तापमान में अस्थायी वृद्धि, जो अक्सर संक्रमण से लड़ने का संकेत है।",
+      "es": "Un aumento temporal de la temperatura corporal, a menudo señal de que el cuerpo combate una infección.",
+      "fr": "Une augmentation temporaire de la température corporelle, souvent signe que le corps combat une infection."
+    },
+    "medicines": ["Paracetamol (as directed)", "Plenty of fluids", "Light clothing, tepid sponging", "Rest", "See a doctor if fever is above 103°F/39.4°C or lasts 3+ days"],
+    "prevention": {
+      "en": "Good hygiene, hydration, timely vaccinations, and avoiding contact with infected individuals.",
+      "hi": "अच्छी स्वच्छता, हाइड्रेशन, समय पर टीकाकरण, और संक्रमित व्यक्तियों के संपर्क से बचना।",
+      "es": "Buena higiene, hidratación, vacunas oportunas y evitar el contacto con personas infectadas.",
+      "fr": "Bonne hygiène, hydratation, vaccinations à temps et éviter le contact avec des personnes infectées."
+    }
+  },
+  {
+    "id": "diarrhea",
+    "keywords": ["diarrhea", "diarrhoea", "loose motion", "loose motions", "watery stool"],
+    "name": { "en": "Diarrhea", "hi": "दस्त", "es": "Diarrea", "fr": "Diarrhée" },
+    "summary": {
+      "en": "Frequent loose, watery stools, often caused by infection, contaminated food/water, or intolerance.",
+      "hi": "बार-बार पतला, पानी जैसा मल आना, जो संक्रमण, दूषित भोजन/पानी के कारण हो सकता है।",
+      "es": "Heces sueltas y acuosas frecuentes, a menudo causadas por infección o agua/alimentos contaminados.",
+      "fr": "Selles molles et fréquentes, souvent causées par une infection ou une eau/nourriture contaminée."
+    },
+    "medicines": ["ORS (Oral Rehydration Solution) - most important", "Zinc supplements (esp. for children)", "Loperamide (adults only, short-term)", "Avoid dairy & oily food", "See doctor if blood in stool or lasts 2+ days"],
+    "prevention": {
+      "en": "Drink safe/clean water, wash hands before eating, avoid street food, ensure proper sanitation.",
+      "hi": "स्वच्छ पानी पिएं, खाने से पहले हाथ धोएं, स्ट्रीट फूड से बचें, उचित स्वच्छता बनाए रखें।",
+      "es": "Beba agua segura, lávese las manos antes de comer, evite la comida callejera.",
+      "fr": "Buvez de l'eau salubre, lavez-vous les mains avant de manger, évitez la nourriture de rue."
+    }
+  },
+  {
+    "id": "food_poisoning",
+    "keywords": ["food poisoning", "vomit", "vomiting", "nausea", "stomach ache after eating", "food ache"],
+    "name": { "en": "Food Poisoning", "hi": "फूड पॉइज़निंग", "es": "Intoxicación Alimentaria", "fr": "Intoxication Alimentaire" },
+    "summary": {
+      "en": "Illness caused by eating contaminated food, causing nausea, vomiting, cramps and diarrhea.",
+      "hi": "दूषित भोजन खाने से होने वाली बीमारी, जिससे मतली, उल्टी, ऐंठन और दस्त होते हैं।",
+      "es": "Enfermedad causada por comer alimentos contaminados, con náuseas, vómitos y calambres.",
+      "fr": "Maladie causée par la consommation d'aliments contaminés, avec nausées, vomissements et crampes."
+    },
+    "medicines": ["ORS to prevent dehydration", "Small sips of water/clear fluids", "Avoid solid food for a few hours", "Domperidone for nausea (as advised)", "Seek urgent care if severe dehydration or high fever"],
+    "prevention": {
+      "en": "Cook food thoroughly, avoid stale/street food, store food properly, wash produce before eating.",
+      "hi": "भोजन को अच्छी तरह पकाएं, बासी/स्ट्रीट फूड से बचें, भोजन को ठीक से स्टोर करें।",
+      "es": "Cocine bien los alimentos, evite comida callejera o en mal estado.",
+      "fr": "Cuisez bien les aliments, évitez la nourriture rassie ou de rue."
+    }
+  },
+  {
+    "id": "allergy",
+    "keywords": ["allergy", "allergic", "itching", "rash", "hives", "skin allergy"],
+    "name": { "en": "Allergy", "hi": "एलर्जी", "es": "Alergia", "fr": "Allergie" },
+    "summary": {
+      "en": "An immune system reaction to substances like pollen, dust, or certain foods, causing itching, rash or sneezing.",
+      "hi": "पराग, धूल या कुछ खाद्य पदार्थों के प्रति प्रतिरक्षा प्रणाली की प्रतिक्रिया, जिससे खुजली, चकत्ते होते हैं।",
+      "es": "Una reacción del sistema inmunológico a sustancias como polen, polvo o ciertos alimentos.",
+      "fr": "Une réaction du système immunitaire à des substances comme le pollen, la poussière ou certains aliments."
+    },
+    "medicines": ["Cetirizine / Loratadine (antihistamines)", "Calamine lotion for skin itching", "Avoid known allergen", "Seek emergency care for difficulty breathing or facial swelling"],
+    "prevention": {
+      "en": "Identify and avoid triggers, keep living spaces dust-free, use air purifiers if needed.",
+      "hi": "ट्रिगर्स की पहचान करें और उनसे बचें, रहने की जगह को धूल-मुक्त रखें।",
+      "es": "Identifique y evite los desencadenantes, mantenga los espacios libres de polvo.",
+      "fr": "Identifiez et évitez les déclencheurs, gardez les espaces de vie sans poussière."
+    }
+  },
+  {
+    "id": "sore_throat",
+    "keywords": ["sore throat", "throat pain", "throat ache", "difficulty swallowing"],
+    "name": { "en": "Sore Throat", "hi": "गले में खराश", "es": "Dolor de Garganta", "fr": "Mal de Gorge" },
+    "summary": {
+      "en": "Pain, scratchiness or irritation of the throat, often from viral infection or dry air.",
+      "hi": "गले में दर्द, खरोंच या जलन, अक्सर वायरल संक्रमण के कारण।",
+      "es": "Dolor, picazón o irritación de la garganta, a menudo por infección viral.",
+      "fr": "Douleur, irritation de la gorge, souvent due à une infection virale."
+    },
+    "medicines": ["Warm salt water gargle", "Throat lozenges", "Paracetamol for pain", "Warm fluids like honey-ginger tea", "See doctor if severe or lasts over a week"],
+    "prevention": {
+      "en": "Stay hydrated, avoid smoking/irritants, use a humidifier in dry weather, avoid shouting/straining voice.",
+      "hi": "हाइड्रेटेड रहें, धूम्रपान से बचें, शुष्क मौसम में ह्यूमिडिफायर का उपयोग करें।",
+      "es": "Manténgase hidratado, evite fumar, use un humidificador en clima seco.",
+      "fr": "Restez hydraté, évitez de fumer, utilisez un humidificateur par temps sec."
+    }
+  },
+  {
+    "id": "cough",
+    "keywords": ["cough", "coughing", "dry cough", "wet cough"],
+    "name": { "en": "Cough", "hi": "खांसी", "es": "Tos", "fr": "Toux" },
+    "summary": {
+      "en": "A reflex to clear airways, can be dry or with mucus, usually from cold, allergy or irritation.",
+      "hi": "वायुमार्ग को साफ करने की प्रतिक्रिया, सूखी या बलगम वाली, आमतौर पर जुकाम या एलर्जी से।",
+      "es": "Un reflejo para despejar las vías respiratorias, puede ser seca o con mucosidad.",
+      "fr": "Un réflexe pour dégager les voies respiratoires, sèche ou avec mucus."
+    },
+    "medicines": ["Honey with warm water (natural remedy)", "Cough syrup (dextromethorphan for dry / expectorant for wet)", "Steam inhalation", "Stay hydrated", "See doctor if cough lasts 2+ weeks or has blood"],
+    "prevention": {
+      "en": "Avoid smoke and pollutants, stay hydrated, wash hands, get flu vaccine annually.",
+      "hi": "धुएं और प्रदूषकों से बचें, हाइड्रेटेड रहें, हाथ धोएं, वार्षिक फ्लू टीका लगवाएं।",
+      "es": "Evite el humo y los contaminantes, manténgase hidratado, lávese las manos.",
+      "fr": "Évitez la fumée et les polluants, restez hydraté, lavez-vous les mains."
+    }
+  },
+  {
+    "id": "indigestion",
+    "keywords": ["acidity", "indigestion", "heartburn", "gas", "bloating", "stomach pain", "stomach ache"],
+    "name": { "en": "Acidity / Indigestion", "hi": "एसिडिटी / अपच", "es": "Acidez / Indigestión", "fr": "Acidité / Indigestion" },
+    "summary": {
+      "en": "Discomfort in the upper stomach, often with burning sensation, bloating or gas after eating.",
+      "hi": "पेट के ऊपरी हिस्से में बेचैनी, अक्सर खाने के बाद जलन, सूजन या गैस के साथ।",
+      "es": "Molestia en la parte superior del estómago, a menudo con sensación de ardor o gases.",
+      "fr": "Inconfort dans le haut de l'estomac, souvent avec sensation de brûlure ou de gaz."
+    },
+    "medicines": ["Antacids (e.g., magnesium/aluminium hydroxide)", "Avoid spicy/oily food", "Eat smaller frequent meals", "Ranitidine/Omeprazole (as advised by doctor)", "Avoid lying down right after eating"],
+    "prevention": {
+      "en": "Eat on time, avoid overeating and spicy food, limit caffeine/alcohol, don't skip meals.",
+      "hi": "समय पर खाएं, अधिक भोजन और मसालेदार भोजन से बचें, कैफीन/शराब सीमित करें।",
+      "es": "Coma a tiempo, evite comer en exceso y comida picante, limite la cafeína/alcohol.",
+      "fr": "Mangez à l'heure, évitez de trop manger et les aliments épicés, limitez la caféine/alcool."
+    }
+  },
+  {
+    "id": "constipation",
+    "keywords": ["constipation", "hard stool", "difficulty passing stool"],
+    "name": { "en": "Constipation", "hi": "कब्ज", "es": "Estreñimiento", "fr": "Constipation" },
+    "summary": {
+      "en": "Difficulty passing stool or infrequent bowel movements, often due to low fiber intake or dehydration.",
+      "hi": "मल त्यागने में कठिनाई या कम बार मल त्याग, अक्सर कम फाइबर या पानी की कमी से।",
+      "es": "Dificultad para evacuar o evacuaciones poco frecuentes, a menudo por poca fibra o deshidratación.",
+      "fr": "Difficulté à évacuer les selles, souvent due à un manque de fibres ou de déshydratation."
+    },
+    "medicines": ["Increase fiber intake (fruits, vegetables)", "Drink more water", "Mild laxative if needed (short-term)", "Regular physical activity", "See doctor if lasts over 2 weeks"],
+    "prevention": {
+      "en": "Eat fiber-rich food, stay hydrated, exercise regularly, don't ignore the urge to go.",
+      "hi": "फाइबर युक्त भोजन खाएं, हाइड्रेटेड रहें, नियमित व्यायाम करें।",
+      "es": "Coma alimentos ricos en fibra, manténgase hidratado, haga ejercicio regularmente.",
+      "fr": "Mangez des aliments riches en fibres, restez hydraté, faites de l'exercice régulièrement."
+    }
+  },
+  {
+    "id": "minor_wound",
+    "keywords": ["cut", "wound", "minor injury", "scrape", "bruise"],
+    "name": { "en": "Minor Cuts & Wounds", "hi": "छोटे घाव और चोट", "es": "Cortes y Heridas Menores", "fr": "Coupures et Blessures Mineures" },
+    "summary": {
+      "en": "Small breaks in the skin from minor accidents, usually manageable with basic first aid.",
+      "hi": "छोटी दुर्घटनाओं से त्वचा में छोटे कट, जिसे बुनियादी प्राथमिक चिकित्सा से ठीक किया जा सकता है।",
+      "es": "Pequeñas roturas en la piel por accidentes menores, generalmente manejables con primeros auxilios.",
+      "fr": "Petites coupures cutanées dues à des accidents mineurs, généralement gérables avec les premiers secours."
+    },
+    "medicines": ["Clean with water and mild antiseptic (e.g., Povidone-iodine)", "Antibiotic ointment", "Sterile bandage", "Tetanus shot if wound is deep/dirty and not up to date", "See doctor if wound is deep, won't stop bleeding, or shows signs of infection"],
+    "prevention": {
+      "en": "Handle sharp objects carefully, wear protective gear when needed, keep wounds clean and covered.",
+      "hi": "तेज वस्तुओं को सावधानी से संभालें, आवश्यकता पड़ने पर सुरक्षा उपकरण पहनें।",
+      "es": "Maneje los objetos afilados con cuidado, use equipo de protección cuando sea necesario.",
+      "fr": "Manipulez les objets tranchants avec précaution, portez un équipement de protection si nécessaire."
+    }
+  }
+]
