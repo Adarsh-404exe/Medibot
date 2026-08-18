@@ -199,7 +199,7 @@
   },
   {
     "id": "minor_wound",
-    "keywords": ["cut", "wound", "minor injury", "scrape", "bruise"],
+    "keywords": ["cut", "cuts", "wound", "minor injury", "scrape", "bruise"],
     "name": { "en": "Minor Cuts & Wounds", "hi": "छोटे घाव और चोट", "es": "Cortes y Heridas Menores", "fr": "Coupures et Blessures Mineures" },
     "summary": {
       "en": "Small breaks in the skin from minor accidents, usually manageable with basic first aid.",
@@ -213,6 +213,312 @@
       "hi": "तेज वस्तुओं को सावधानी से संभालें, आवश्यकता पड़ने पर सुरक्षा उपकरण पहनें।",
       "es": "Maneje los objetos afilados con cuidado, use equipo de protección cuando sea necesario.",
       "fr": "Manipulez les objets tranchants avec précaution, portez un équipement de protection si nécessaire."
+    }
+  },
+  {
+    "id": "typhoid",
+    "keywords": ["typhoid", "prolonged fever", "fever for many days", "weakness with fever", "stomach pain with fever"],
+    "name": { "en": "Typhoid Fever", "hi": "टाइफाइड बुखार", "es": "Fiebre Tifoidea", "fr": "Fièvre Typhoïde" },
+    "summary": {
+      "en": "A bacterial infection (Salmonella Typhi) spread through contaminated food/water, causing sustained high fever, weakness, and stomach pain. Needs medical diagnosis and antibiotics.",
+      "hi": "दूषित भोजन/पानी से फैलने वाला एक जीवाणु संक्रमण, जिसमें लगातार तेज़ बुखार, कमजोरी और पेट दर्द होता है। चिकित्सकीय जांच और एंटीबायोटिक ज़रूरी है।",
+      "es": "Una infección bacteriana propagada por alimentos/agua contaminados, con fiebre alta sostenida, debilidad y dolor de estómago. Requiere diagnóstico médico.",
+      "fr": "Une infection bactérienne propagée par une eau/nourriture contaminée, avec fièvre élevée soutenue et faiblesse. Nécessite un diagnostic médical."
+    },
+    "medicines": ["⚠️ Typhoid needs a blood test (Widal/blood culture) and prescription antibiotics — do not self-medicate", "ORS and fluids to stay hydrated", "Paracetamol for fever (short term only)", "Complete rest and light, easily digestible food", "See a doctor urgently if fever lasts more than 3 days"],
+    "prevention": {
+      "en": "Drink only safe/boiled water, avoid street food and raw vegetables, wash hands before eating, get vaccinated if in a high-risk area.",
+      "hi": "केवल स्वच्छ/उबला पानी पिएं, स्ट्रीट फूड और कच्ची सब्जियों से बचें, खाने से पहले हाथ धोएं, जोखिम वाले क्षेत्र में टीका लगवाएं।",
+      "es": "Beba solo agua segura/hervida, evite comida callejera y verduras crudas, lávese las manos antes de comer.",
+      "fr": "Buvez uniquement de l'eau salubre/bouillie, évitez la nourriture de rue et les légumes crus, lavez-vous les mains avant de manger."
+    }
+  },
+  {
+    "id": "malaria",
+    "keywords": ["malaria", "chills with fever", "fever with sweating", "cyclical fever", "shivering fever"],
+    "name": { "en": "Malaria", "hi": "मलेरिया", "es": "Malaria", "fr": "Paludisme" },
+    "summary": {
+      "en": "A mosquito-borne parasitic infection causing cycles of high fever, chills, and sweating. Requires urgent blood testing and antimalarial treatment.",
+      "hi": "मच्छर से फैलने वाला परजीवी संक्रमण, जिसमें तेज़ बुखार, ठंड लगना और पसीना आने के चक्र होते हैं। तुरंत रक्त जांच और उपचार आवश्यक है।",
+      "es": "Una infección parasitaria transmitida por mosquitos con ciclos de fiebre alta, escalofríos y sudoración. Requiere análisis de sangre urgente.",
+      "fr": "Une infection parasitaire transmise par les moustiques avec des cycles de fièvre élevée et de frissons. Nécessite un test sanguin urgent."
+    },
+    "medicines": ["⚠️ Malaria requires a blood test and prescription antimalarial medicine — do not self-medicate", "Paracetamol for fever (avoid Aspirin/Ibuprofen)", "Plenty of fluids", "Rest", "Seek medical care immediately, especially for children and pregnant women"],
+    "prevention": {
+      "en": "Use mosquito nets and repellents, eliminate stagnant water near home, wear full-sleeve clothing at dusk/dawn.",
+      "hi": "मच्छरदानी और रिपेलेंट का उपयोग करें, घर के पास रुका हुआ पानी हटाएं, शाम/सुबह पूरी आस्तीन के कपड़े पहनें।",
+      "es": "Use mosquiteros y repelentes, elimine el agua estancada cerca de casa.",
+      "fr": "Utilisez des moustiquaires et des répulsifs, éliminez l'eau stagnante près de chez vous."
+    }
+  },
+  {
+    "id": "dengue",
+    "keywords": ["dengue", "severe joint pain with fever", "rash with fever", "pain behind eyes", "bone breaking fever"],
+    "name": { "en": "Dengue Fever", "hi": "डेंगू बुखार", "es": "Fiebre del Dengue", "fr": "Fièvre Dengue" },
+    "summary": {
+      "en": "A mosquito-borne viral infection causing high fever, severe joint/muscle pain, rash, and low platelet count. Can become serious — needs monitoring.",
+      "hi": "मच्छर से फैलने वाला वायरल संक्रमण, जिसमें तेज़ बुखार, गंभीर जोड़/मांसपेशी दर्द, चकत्ते और प्लेटलेट्स कम होना शामिल है। गंभीर हो सकता है।",
+      "es": "Una infección viral transmitida por mosquitos con fiebre alta, dolor articular severo y erupción cutánea. Puede volverse grave.",
+      "fr": "Une infection virale transmise par les moustiques avec fièvre élevée et douleurs articulaires sévères. Peut devenir grave."
+    },
+    "medicines": ["⚠️ Get a platelet count blood test done promptly", "Paracetamol only for fever/pain (NEVER Aspirin or Ibuprofen — risk of bleeding)", "Plenty of fluids and ORS", "Complete rest", "Go to hospital immediately if bleeding gums, severe belly pain, or persistent vomiting occurs"],
+    "prevention": {
+      "en": "Eliminate stagnant water (mosquito breeding), use repellents and nets, wear covering clothing during the day.",
+      "hi": "रुका हुआ पानी खत्म करें (मच्छर प्रजनन स्थल), रिपेलेंट और मच्छरदानी का उपयोग करें।",
+      "es": "Elimine el agua estancada, use repelentes y mosquiteros.",
+      "fr": "Éliminez l'eau stagnante, utilisez des répulsifs et des moustiquaires."
+    }
+  },
+  {
+    "id": "jaundice",
+    "keywords": ["jaundice", "yellow eyes", "yellow skin", "hepatitis", "dark urine with weakness"],
+    "name": { "en": "Jaundice / Hepatitis", "hi": "पीलिया / हेपेटाइटिस", "es": "Ictericia / Hepatitis", "fr": "Jaunisse / Hépatite" },
+    "summary": {
+      "en": "Yellowing of the skin/eyes caused by liver dysfunction, often due to viral hepatitis (A/E common from contaminated food/water in India).",
+      "hi": "लीवर की खराबी के कारण त्वचा/आंखों का पीला होना, अक्सर वायरल हेपेटाइटिस के कारण।",
+      "es": "Coloración amarillenta de la piel/ojos causada por disfunción hepática, a menudo por hepatitis viral.",
+      "fr": "Jaunissement de la peau/des yeux causé par un dysfonctionnement du foie, souvent dû à une hépatite virale."
+    },
+    "medicines": ["⚠️ Needs liver function tests (LFT) and medical evaluation — do not self-medicate", "Complete rest, avoid alcohol and fatty food", "Plenty of fluids", "Light, easily digestible diet (fruits, boiled food)", "See a doctor promptly for proper diagnosis"],
+    "prevention": {
+      "en": "Drink safe water, eat properly cooked food, maintain hand hygiene, get Hepatitis A/B vaccination if recommended.",
+      "hi": "स्वच्छ पानी पिएं, अच्छी तरह पका भोजन खाएं, हाथों की स्वच्छता बनाए रखें, हेपेटाइटिस का टीका लगवाएं।",
+      "es": "Beba agua segura, coma alimentos bien cocidos, mantenga la higiene de manos.",
+      "fr": "Buvez de l'eau salubre, mangez des aliments bien cuits, maintenez l'hygiène des mains."
+    }
+  },
+  {
+    "id": "chikungunya",
+    "keywords": ["chikungunya", "severe joint swelling", "joint pain and rash", "crippling joint pain"],
+    "name": { "en": "Chikungunya", "hi": "चिकनगुनिया", "es": "Chikunguña", "fr": "Chikungunya" },
+    "summary": {
+      "en": "A mosquito-borne viral infection causing sudden fever and severe joint pain/swelling that can persist for weeks.",
+      "hi": "मच्छर से फैलने वाला वायरल संक्रमण, जिसमें अचानक बुखार और गंभीर जोड़ों का दर्द/सूजन होती है जो हफ्तों तक रह सकती है।",
+      "es": "Una infección viral transmitida por mosquitos con fiebre repentina y dolor/hinchazón articular severo.",
+      "fr": "Une infection virale transmise par les moustiques avec fièvre soudaine et douleurs/gonflement articulaires sévères."
+    },
+    "medicines": ["Paracetamol for fever and pain (avoid Aspirin/Ibuprofen until dengue is ruled out)", "Rest and elevate swollen joints", "Plenty of fluids", "Gentle physiotherapy once acute phase passes (as advised by doctor)", "See a doctor for proper diagnosis and blood test"],
+    "prevention": {
+      "en": "Prevent mosquito breeding, use repellents, wear full-sleeve clothing, use nets while sleeping.",
+      "hi": "मच्छरों के प्रजनन को रोकें, रिपेलेंट का उपयोग करें, पूरी आस्तीन के कपड़े पहनें।",
+      "es": "Prevenga la reproducción de mosquitos, use repelentes.",
+      "fr": "Empêchez la reproduction des moustiques, utilisez des répulsifs."
+    }
+  },
+  {
+    "id": "urinary_tract_infection",
+    "keywords": ["uti", "burning urination", "burning while urinating", "burning sensation while urinating", "frequent urination", "urine infection", "painful urination", "burning while peeing", "pain while urinating"],
+    "name": { "en": "Urinary Tract Infection (UTI)", "hi": "मूत्र मार्ग संक्रमण (यूटीआई)", "es": "Infección Urinaria", "fr": "Infection Urinaire" },
+    "summary": {
+      "en": "A bacterial infection of the urinary system causing burning sensation while urinating, frequent urge, and lower abdominal discomfort.",
+      "hi": "मूत्र प्रणाली का जीवाणु संक्रमण, जिससे पेशाब करते समय जलन, बार-बार पेशाब आना और पेट के निचले हिस्से में तकलीफ होती है।",
+      "es": "Una infección bacteriana del sistema urinario con sensación de ardor al orinar y necesidad frecuente.",
+      "fr": "Une infection bactérienne du système urinaire avec sensation de brûlure en urinant."
+    },
+    "medicines": ["Drink plenty of water to flush the system", "Cranberry juice (supportive, not curative)", "Avoid holding urine for long periods", "Antibiotics if prescribed by a doctor after urine test", "See a doctor if fever, back pain, or blood in urine appears"],
+    "prevention": {
+      "en": "Stay well hydrated, maintain genital hygiene, urinate after intercourse, avoid holding urine for long.",
+      "hi": "पर्याप्त पानी पिएं, जननांग स्वच्छता बनाए रखें, पेशाब लंबे समय तक न रोकें।",
+      "es": "Manténgase bien hidratado, mantenga la higiene genital.",
+      "fr": "Restez bien hydraté, maintenez l'hygiène génitale."
+    }
+  },
+  {
+    "id": "conjunctivitis",
+    "keywords": ["eye infection", "red eyes", "conjunctivitis", "itchy eyes", "pink eye", "watery eyes with redness"],
+    "name": { "en": "Conjunctivitis (Eye Infection)", "hi": "आँख आना (कंजंक्टिवाइटिस)", "es": "Conjuntivitis", "fr": "Conjonctivite" },
+    "summary": {
+      "en": "Inflammation of the eye's outer membrane, causing redness, itching, and discharge — often viral, bacterial, or allergic, and contagious.",
+      "hi": "आंख की बाहरी झिल्ली की सूजन, जिससे लालिमा, खुजली और स्राव होता है — अक्सर संक्रामक।",
+      "es": "Inflamación de la membrana externa del ojo, con enrojecimiento, picazón y secreción — a menudo contagiosa.",
+      "fr": "Inflammation de la membrane externe de l'œil, avec rougeur et démangeaisons — souvent contagieuse."
+    },
+    "medicines": ["Clean eyes gently with clean water/cotton", "Avoid touching/rubbing eyes", "Lubricating eye drops for comfort", "Antibiotic eye drops only if prescribed by a doctor", "Avoid sharing towels/pillows; see a doctor if vision is affected"],
+    "prevention": {
+      "en": "Wash hands frequently, avoid touching eyes, don't share towels or eye makeup, avoid close contact with infected persons.",
+      "hi": "बार-बार हाथ धोएं, आंखों को छूने से बचें, तौलिया साझा न करें।",
+      "es": "Lávese las manos con frecuencia, evite tocarse los ojos.",
+      "fr": "Lavez-vous fréquemment les mains, évitez de toucher vos yeux."
+    }
+  },
+  {
+    "id": "ringworm",
+    "keywords": ["ringworm", "fungal infection", "skin fungus", "ring shaped rash", "itchy skin patch"],
+    "name": { "en": "Ringworm / Fungal Skin Infection", "hi": "दाद / फंगल त्वचा संक्रमण", "es": "Tiña / Infección Fúngica", "fr": "Teigne / Infection Fongique" },
+    "summary": {
+      "en": "A common fungal skin infection causing itchy, ring-shaped red patches, often worsened by heat and moisture.",
+      "hi": "एक सामान्य फंगल त्वचा संक्रमण, जिससे खुजली वाले, गोलाकार लाल धब्बे होते हैं।",
+      "es": "Una infección fúngica cutánea común con manchas rojas circulares y con picazón.",
+      "fr": "Une infection fongique cutanée courante avec des plaques rouges circulaires qui démangent."
+    },
+    "medicines": ["Antifungal cream (e.g., Clotrimazole/Terbinafine) applied as directed", "Keep the area clean and dry", "Avoid tight/synthetic clothing", "Don't share towels or clothing", "See a doctor if it spreads or doesn't improve in 2 weeks"],
+    "prevention": {
+      "en": "Keep skin dry, wear loose breathable clothing, avoid sharing personal items, treat pets if they're a source.",
+      "hi": "त्वचा को सूखा रखें, ढीले सूती कपड़े पहनें, व्यक्तिगत वस्तुएं साझा न करें।",
+      "es": "Mantenga la piel seca, use ropa suelta y transpirable.",
+      "fr": "Gardez la peau sèche, portez des vêtements amples et respirants."
+    }
+  },
+  {
+    "id": "piles",
+    "keywords": ["piles", "hemorrhoids", "bleeding while passing stool", "anal pain", "rectal bleeding"],
+    "name": { "en": "Piles (Hemorrhoids)", "hi": "बवासीर (पाइल्स)", "es": "Hemorroides", "fr": "Hémorroïdes" },
+    "summary": {
+      "en": "Swollen veins in the lower rectum/anus, often caused by constipation or straining, causing pain and sometimes bleeding.",
+      "hi": "मलाशय/गुदा की सूजी हुई नसें, अक्सर कब्ज के कारण, जिससे दर्द और कभी-कभी रक्तस्राव होता है।",
+      "es": "Venas hinchadas en el recto/ano inferior, a menudo por estreñimiento, con dolor y a veces sangrado.",
+      "fr": "Veines gonflées dans le rectum/anus inférieur, souvent dues à la constipation, avec douleur et parfois saignement."
+    },
+    "medicines": ["Increase fiber and water intake to soften stool", "Warm sitz baths for relief", "OTC hemorrhoid creams (as directed)", "Avoid straining during bowel movements", "See a doctor if bleeding is heavy or persistent"],
+    "prevention": {
+      "en": "Eat a high-fiber diet, stay hydrated, avoid prolonged sitting, don't strain or delay the urge to go.",
+      "hi": "उच्च फाइबर वाला भोजन खाएं, हाइड्रेटेड रहें, लंबे समय तक न बैठें।",
+      "es": "Coma una dieta rica en fibra, manténgase hidratado.",
+      "fr": "Mangez une alimentation riche en fibres, restez hydraté."
+    }
+  },
+  {
+    "id": "kidney_stone",
+    "keywords": ["kidney stone", "severe back pain radiating", "flank pain", "blood in urine with pain"],
+    "name": { "en": "Kidney Stone", "hi": "गुर्दे की पथरी", "es": "Cálculo Renal", "fr": "Calcul Rénal" },
+    "summary": {
+      "en": "A hard mineral deposit in the kidney causing sudden, severe pain in the back/side, often radiating to the lower abdomen.",
+      "hi": "गुर्दे में एक कठोर खनिज जमाव, जिससे पीठ/बाजू में अचानक तेज़ दर्द होता है।",
+      "es": "Un depósito mineral duro en el riñón que causa dolor repentino y severo en la espalda/costado.",
+      "fr": "Un dépôt minéral dur dans le rein provoquant une douleur soudaine et sévère au dos/côté."
+    },
+    "medicines": ["⚠️ Needs an ultrasound/scan for diagnosis — see a doctor promptly", "Drink plenty of water", "Pain relief only as prescribed by a doctor", "Avoid excess salt and oxalate-rich foods (like spinach, nuts) if prone to stones", "Seek urgent care for severe pain, fever, or inability to urinate"],
+    "prevention": {
+      "en": "Stay well hydrated, reduce salt intake, limit oxalate-rich foods, maintain a balanced diet.",
+      "hi": "पर्याप्त पानी पिएं, नमक कम करें, संतुलित आहार बनाए रखें।",
+      "es": "Manténgase bien hidratado, reduzca la ingesta de sal.",
+      "fr": "Restez bien hydraté, réduisez votre consommation de sel."
+    }
+  },
+  {
+    "id": "arthritis",
+    "keywords": ["arthritis", "joint pain", "knee pain", "stiffness in joints", "swollen joints", "morning stiffness"],
+    "name": { "en": "Arthritis / Joint Pain", "hi": "गठिया / जोड़ों का दर्द", "es": "Artritis / Dolor Articular", "fr": "Arthrite / Douleur Articulaire" },
+    "summary": {
+      "en": "Inflammation of one or more joints causing pain, stiffness, and swelling — can be due to age-related wear, autoimmune conditions, or injury.",
+      "hi": "एक या अधिक जोड़ों की सूजन, जिससे दर्द, अकड़न और सूजन होती है — उम्र, ऑटोइम्यून स्थिति या चोट के कारण हो सकती है।",
+      "es": "Inflamación de una o más articulaciones con dolor, rigidez e hinchazón.",
+      "fr": "Inflammation d'une ou plusieurs articulations avec douleur, raideur et gonflement."
+    },
+    "medicines": ["⚠️ Chronic/recurring joint pain needs proper diagnosis — consult a doctor, don't self-medicate long-term", "Gentle exercise and stretching as tolerated", "Hot/cold compress for symptom relief", "Maintain healthy weight to reduce joint load", "Paracetamol for occasional mild pain (short-term only)"],
+    "prevention": {
+      "en": "Maintain a healthy weight, stay physically active, eat an anti-inflammatory diet, avoid joint overuse.",
+      "hi": "स्वस्थ वजन बनाए रखें, शारीरिक रूप से सक्रिय रहें, संतुलित आहार लें।",
+      "es": "Mantenga un peso saludable, manténgase físicamente activo.",
+      "fr": "Maintenez un poids santé, restez physiquement actif."
+    }
+  },
+  {
+    "id": "back_pain",
+    "keywords": ["back pain", "lower back pain", "spine pain", "backache"],
+    "name": { "en": "Back Pain", "hi": "पीठ दर्द", "es": "Dolor de Espalda", "fr": "Mal de Dos" },
+    "summary": {
+      "en": "Pain in the back, often from muscle strain, poor posture, or prolonged sitting — usually improves with rest and care.",
+      "hi": "पीठ में दर्द, अक्सर मांसपेशियों में खिंचाव, गलत मुद्रा या लंबे समय तक बैठने से होता है।",
+      "es": "Dolor en la espalda, a menudo por tensión muscular o mala postura.",
+      "fr": "Douleur dans le dos, souvent due à une tension musculaire ou une mauvaise posture."
+    },
+    "medicines": ["Rest (but avoid prolonged bed rest)", "Hot/cold compress on the affected area", "Gentle stretching exercises", "Paracetamol or Ibuprofen for pain relief (short-term)", "See a doctor if pain radiates down the leg, or lasts more than 2 weeks"],
+    "prevention": {
+      "en": "Maintain good posture, exercise regularly, use proper lifting technique, use an ergonomic chair.",
+      "hi": "अच्छी मुद्रा बनाए रखें, नियमित व्यायाम करें, सही तरीके से भारी वस्तु उठाएं।",
+      "es": "Mantenga una buena postura, haga ejercicio regularmente.",
+      "fr": "Maintenez une bonne posture, faites de l'exercice régulièrement."
+    }
+  },
+  {
+    "id": "hypertension",
+    "keywords": ["high blood pressure", "hypertension", "bp high", "blood pressure high"],
+    "name": { "en": "High Blood Pressure (Hypertension)", "hi": "उच्च रक्तचाप", "es": "Presión Arterial Alta", "fr": "Hypertension Artérielle" },
+    "summary": {
+      "en": "A chronic condition where blood pressure in the arteries is persistently elevated, increasing risk of heart disease and stroke.",
+      "hi": "एक दीर्घकालिक स्थिति जिसमें धमनियों में रक्तचाप लगातार बढ़ा रहता है, जिससे हृदय रोग का खतरा बढ़ता है।",
+      "es": "Una condición crónica en la que la presión arterial está persistentemente elevada.",
+      "fr": "Une condition chronique où la pression artérielle est constamment élevée."
+    },
+    "medicines": ["⚠️ This is a chronic condition — needs regular monitoring and doctor-prescribed medication, do not self-medicate", "Reduce salt intake", "Regular moderate exercise", "Limit alcohol and quit smoking", "Get blood pressure checked regularly, seek urgent care if reading is very high with headache/chest pain"],
+    "prevention": {
+      "en": "Maintain healthy weight, reduce salt and processed food, exercise regularly, manage stress, avoid smoking.",
+      "hi": "स्वस्थ वजन बनाए रखें, नमक कम करें, नियमित व्यायाम करें, धूम्रपान से बचें।",
+      "es": "Mantenga un peso saludable, reduzca la sal, haga ejercicio regularmente.",
+      "fr": "Maintenez un poids santé, réduisez le sel, faites de l'exercice régulièrement."
+    }
+  },
+  {
+    "id": "diabetes",
+    "keywords": ["diabetes", "high blood sugar", "excessive thirst and urination", "frequent urination and thirst"],
+    "name": { "en": "Diabetes", "hi": "मधुमेह (डायबिटीज)", "es": "Diabetes", "fr": "Diabète" },
+    "summary": {
+      "en": "A chronic condition where blood sugar levels are too high, often causing excessive thirst, frequent urination, and fatigue.",
+      "hi": "एक दीर्घकालिक स्थिति जिसमें रक्त शर्करा का स्तर बहुत अधिक होता है, जिससे अत्यधिक प्यास और बार-बार पेशाब आता है।",
+      "es": "Una condición crónica donde los niveles de azúcar en sangre son demasiado altos.",
+      "fr": "Une condition chronique où les niveaux de sucre dans le sang sont trop élevés."
+    },
+    "medicines": ["⚠️ This is a chronic condition — needs blood sugar testing and doctor-guided treatment, do not self-medicate", "Follow a balanced, low-sugar diet as advised by a doctor/dietician", "Regular physical activity", "Monitor blood sugar levels regularly if diagnosed", "Seek urgent care for very high/low blood sugar symptoms (confusion, fainting)"],
+    "prevention": {
+      "en": "Maintain a healthy weight, eat a balanced diet low in refined sugar, exercise regularly, get regular health checkups.",
+      "hi": "स्वस्थ वजन बनाए रखें, कम चीनी वाला संतुलित आहार लें, नियमित व्यायाम करें।",
+      "es": "Mantenga un peso saludable, coma una dieta equilibrada baja en azúcar.",
+      "fr": "Maintenez un poids santé, mangez une alimentation équilibrée pauvre en sucre."
+    }
+  },
+  {
+    "id": "anemia",
+    "keywords": ["anemia", "low hemoglobin", "weakness and paleness", "always feeling tired and weak", "pale skin"],
+    "name": { "en": "Anemia", "hi": "खून की कमी (एनीमिया)", "es": "Anemia", "fr": "Anémie" },
+    "summary": {
+      "en": "A condition where the body lacks enough healthy red blood cells, causing fatigue, weakness, and pale skin — common due to iron deficiency.",
+      "hi": "एक स्थिति जिसमें शरीर में पर्याप्त स्वस्थ लाल रक्त कोशिकाओं की कमी होती है, जिससे थकान और कमजोरी होती है।",
+      "es": "Una condición en la que el cuerpo carece de suficientes glóbulos rojos sanos.",
+      "fr": "Une condition où le corps manque de globules rouges sains, causant fatigue et faiblesse."
+    },
+    "medicines": ["⚠️ Get a blood test (CBC) done to confirm before taking iron supplements", "Iron-rich foods: leafy greens, jaggery, lentils, pomegranate", "Vitamin C helps iron absorption (citrus fruits)", "Iron/folic acid supplements only if prescribed by a doctor", "See a doctor if fatigue is severe or persistent"],
+    "prevention": {
+      "en": "Eat iron-rich foods regularly, pair with Vitamin C, treat underlying causes like heavy periods, get periodic checkups.",
+      "hi": "नियमित रूप से आयरन युक्त भोजन खाएं, विटामिन सी के साथ लें।",
+      "es": "Coma alimentos ricos en hierro regularmente.",
+      "fr": "Mangez régulièrement des aliments riches en fer."
+    }
+  },
+  {
+    "id": "asthma",
+    "keywords": ["asthma", "wheezing", "breathlessness", "shortness of breath", "difficulty breathing"],
+    "name": { "en": "Asthma", "hi": "अस्थमा (दमा)", "es": "Asma", "fr": "Asthme" },
+    "summary": {
+      "en": "A chronic condition causing airway inflammation, leading to wheezing, breathlessness, and chest tightness — often triggered by allergens or exercise.",
+      "hi": "एक दीर्घकालिक स्थिति जिससे वायुमार्ग में सूजन होती है, जिससे घरघराहट और सांस फूलना होता है।",
+      "es": "Una condición crónica que causa inflamación de las vías respiratorias, con sibilancias y dificultad para respirar.",
+      "fr": "Une condition chronique provoquant une inflammation des voies respiratoires, avec sifflements et essoufflement."
+    },
+    "medicines": ["⚠️ Needs proper diagnosis and an inhaler/medication prescribed by a doctor — do not self-medicate", "Avoid known triggers (dust, smoke, pollen, cold air)", "Keep a rescue inhaler handy if already diagnosed", "Practice breathing exercises as advised", "Seek EMERGENCY care immediately for severe breathlessness or bluish lips"],
+    "prevention": {
+      "en": "Avoid known triggers, keep living spaces dust-free, get flu/pneumonia vaccines as advised, follow prescribed maintenance treatment.",
+      "hi": "ज्ञात ट्रिगर्स से बचें, रहने की जगह को धूल-मुक्त रखें।",
+      "es": "Evite los desencadenantes conocidos, mantenga los espacios de vida libres de polvo.",
+      "fr": "Évitez les déclencheurs connus, gardez les espaces de vie sans poussière."
+    }
+  },
+  {
+    "id": "ear_infection",
+    "keywords": ["ear pain", "ear infection", "earache", "ear discharge", "pain in ear"],
+    "name": { "en": "Ear Infection", "hi": "कान का संक्रमण", "es": "Infección de Oído", "fr": "Infection de l'Oreille" },
+    "summary": {
+      "en": "Infection of the outer or middle ear causing pain, sometimes discharge or temporary hearing difficulty — common in children.",
+      "hi": "बाहरी या मध्य कान का संक्रमण, जिससे दर्द होता है, कभी-कभी स्राव या अस्थायी सुनने में कठिनाई भी होती है।",
+      "es": "Infección del oído externo o medio con dolor, a veces secreción.",
+      "fr": "Infection de l'oreille externe ou moyenne avec douleur, parfois écoulement."
+    },
+    "medicines": ["Keep the ear dry, avoid inserting objects (including cotton buds)", "Warm compress near the ear for pain relief", "Paracetamol for pain", "Antibiotic/ear drops only if prescribed by a doctor", "See a doctor if there's discharge, fever, or hearing loss"],
+    "prevention": {
+      "en": "Keep ears dry, avoid inserting objects into the ear, treat colds/allergies promptly, avoid smoke exposure around children.",
+      "hi": "कान सूखा रखें, कान में वस्तुएं न डालें, जुकाम/एलर्जी का समय पर इलाज करें।",
+      "es": "Mantenga los oídos secos, evite insertar objetos en el oído.",
+      "fr": "Gardez les oreilles sèches, évitez d'insérer des objets dans l'oreille."
     }
   }
 ]
