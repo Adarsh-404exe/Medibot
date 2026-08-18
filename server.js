@@ -12,12 +12,12 @@ const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
 
-const diseases = require("./diseases.json");
-const translations = require("./translations.json");
-const quickOptions = require("./quickOptions.json");
+const diseases = require("./data/diseases.json");
+const translations = require("./data/translations.json");
+const quickOptions = require("./data/quickOptions.json");
 
 const PORT = process.env.PORT || 3000;
-const FRONTEND_DIR = __dirname;
+const FRONTEND_DIR = path.join(__dirname, "frontend");
 
 const MIME = {
   ".html": "text/html; charset=utf-8",
@@ -52,42 +52,48 @@ function t(lang, key) {
 // Health-relatedness + symptom matching
 // ---------------------------------------------------------------------------
 const GENERIC_HEALTH_WORDS = [
-  "pain", "ache", "hurt", "sick", "ill", "fever", "cough", "cold", "flu",
-  "vomit", "nausea", "dizzy", "tired", "fatigue", "rash", "itch", "swelling",
-  "swollen", "bleed", "blood", "diarrhea", "diarrhoea", "constipation",
-  "burn", "sore", "infection", "allergy", "allergic", "breathe", "breathing",
-  "headache", "migraine", "stomach", "throat", "nose", "sneeze", "chest",
-  "symptom", "symptoms", "medicine", "medication", "doctor", "disease",
-  "wound", "cut", "injury", "cramp", "bloating", "gas", "acidity", "weak",
+  "pain", "pains", "ache", "aches", "aching", "hurt", "hurts", "hurting",
+  "sick", "ill", "fever", "cough", "coughing", "cold", "flu",
+  "vomit", "vomiting", "nausea", "dizzy", "dizziness", "tired", "tiredness",
+  "fatigue", "rash", "itch", "itching", "itchy", "swelling", "swollen",
+  "bleed", "bleeding", "blood", "diarrhea", "diarrhoea", "constipation",
+  "burn", "burning", "sore", "infection", "allergy", "allergic",
+  "breathe", "breathing", "headache", "migraine", "stomach", "throat",
+  "nose", "sneeze", "sneezing", "chest", "symptom", "symptoms", "medicine",
+  "medication", "doctor", "disease", "wound", "cut", "cuts", "injury",
+  "cramp", "cramps", "bloating", "gas", "acidity", "weak", "weakness",
+  "urinate", "urinating", "urination",
 ];
 
 function buildKeywordIndex() {
   const idx = [];
   diseases.forEach((d) => {
-    d.keywords.forEach((k) => idx.push({ keyword: k.toLowerCase(), disease: d }));
+    d.keywords.forEach((k) => {
+      const escaped = k.toLowerCase().replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      const regex = new RegExp(`\\b${escaped}\\b`, "i");
+      idx.push({ keyword: k.toLowerCase(), regex, disease: d });
+    });
   });
   return idx.sort((a, b) => b.keyword.length - a.keyword.length);
 }
 const KEYWORD_INDEX = buildKeywordIndex();
 
 function isHealthRelated(text) {
-  const lower = text.toLowerCase();
-  if (KEYWORD_INDEX.some((entry) => lower.includes(entry.keyword))) return true;
-  return GENERIC_HEALTH_WORDS.some((w) => lower.includes(w));
+  if (KEYWORD_INDEX.some((entry) => entry.regex.test(text))) return true;
+  return GENERIC_HEALTH_WORDS.some((w) => new RegExp(`\\b${w}\\b`, "i").test(text));
 }
 
 function matchDiseases(text) {
-  const lower = text.toLowerCase();
   const matched = new Map();
   KEYWORD_INDEX.forEach((entry) => {
-    if (lower.includes(entry.keyword)) matched.set(entry.disease.id, entry.disease);
+    if (entry.regex.test(text)) matched.set(entry.disease.id, entry.disease);
   });
   return Array.from(matched.values());
 }
 
 function formatDiseaseReply(list, lang) {
   const parts = [t(lang, "resultIntro")];
-  list.slice(0, 2).forEach((d) => {
+  list.slice(0, 3).forEach((d) => {
     const name = d.name[lang] || d.name.en;
     const summary = d.summary[lang] || d.summary.en;
     const prevention = d.prevention[lang] || d.prevention.en;
