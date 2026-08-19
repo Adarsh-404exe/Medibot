@@ -21,12 +21,12 @@ const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
 
-const diseases = require("./data/diseases.json");
-const translations = require("./data/translations.json");
-const quickOptions = require("./data/quickOptions.json");
+const diseases = require("./diseases.json");
+const translations = require("./translations.json");
+const quickOptions = require("./quickOptions.json");
 
 const PORT = process.env.PORT || 3000;
-const FRONTEND_DIR = path.join(__dirname, "frontend");
+const FRONTEND_DIR = __dirname;
 
 // Set this as an environment variable (never hardcode it / commit it to GitHub).
 // Get a free key (no credit card) at https://console.groq.com
