@@ -1,8 +1,17 @@
 /**
  * MediBot Backend
  * Zero-dependency Node.js server (built-in `http` module only — no npm
- * install required) that serves the frontend and powers a rule-based
- * health-symptom chatbot.
+ * install required) that serves the frontend and powers the chatbot.
+ *
+ * The chatbot uses Groq's free AI API (Llama model) for natural-language
+ * understanding when GROQ_API_KEY is set as an environment variable.
+ * Groq's free tier requires no credit card and has generous rate limits
+ * (30 requests/min, 14,400/day) — genuinely $0 cost for personal use.
+ * If the key is missing or the API call fails for any reason, it
+ * automatically falls back to the built-in rule-based keyword matcher —
+ * so the site never breaks.
+ *
+ * Get a free key: https://console.groq.com  (sign up, no card needed)
  *
  * Run:  node server.js
  * Then open http://localhost:3000
@@ -18,6 +27,13 @@ const quickOptions = require("./data/quickOptions.json");
 
 const PORT = process.env.PORT || 3000;
 const FRONTEND_DIR = path.join(__dirname, "frontend");
+
+// Set this as an environment variable (never hardcode it / commit it to GitHub).
+// Get a free key (no credit card) at https://console.groq.com
+const GROQ_API_KEY = process.env.GROQ_API_KEY;
+const GROQ_MODEL = "llama-3.3-70b-versatile"; // free, high quality, generous rate limits
+
+const LANG_NAMES = { en: "English", hi: "Hindi", es: "Spanish", fr: "French" };
 
 const MIME = {
   ".html": "text/html; charset=utf-8",
@@ -37,7 +53,7 @@ const sessions = new Map();
 function getSession(sessionId) {
   if (!sessionId || !sessions.has(sessionId)) {
     const id = sessionId || crypto.randomUUID();
-    sessions.set(id, { id, stage: "greeting", gender: null, age: null, lang: "en" });
+    sessions.set(id, { id, stage: "greeting", gender: null, age: null, lang: "en", history: [] });
     return sessions.get(id);
   }
   return sessions.get(sessionId);
@@ -108,6 +124,58 @@ function formatDiseaseReply(list, lang) {
 }
 
 // ---------------------------------------------------------------------------
+// AI-powered health response (Groq's free API — Llama model)
+// ---------------------------------------------------------------------------
+const MEDIBOT_SYSTEM_PROMPT = (lang, session) => `You are MediBot, a friendly AI health assistant embedded in a website chat widget.
+
+STRICT RULES:
+- Only discuss health, symptoms, common illnesses, and general wellness. If the user's message is not health-related, politely say you can only help with health-related questions and nothing else.
+- You are NOT a doctor and must never claim to give a medical diagnosis. Always frame answers as general information, not a diagnosis.
+- Base your guidance on general public-health knowledge consistent with WHO and mainstream medical guidance for common conditions.
+- For chronic or serious conditions (diabetes, high blood pressure, heart issues, cancer symptoms, mental health crises, anything needing lab tests or prescription-only medication), do NOT suggest specific drug names or dosages — instead clearly say to consult a licensed doctor.
+- For common, everyday, non-emergency conditions (cold, flu, mild fever, headache, indigestion, minor cuts, common infections), you may suggest general over-the-counter self-care measures, but never give exact prescription dosages.
+- Keep answers concise: under ~180 words, warm tone, a few relevant emoji, no walls of text.
+- Structure your answer roughly as: 1) what it could commonly be (not a diagnosis) 2) general self-care/OTC guidance 3) 1-2 prevention tips 4) when to see a doctor. Skip sections that don't apply.
+- End by asking if there's any other symptom they'd like to check.
+- Always reply in ${LANG_NAMES[lang] || "English"}, regardless of what language the user typed in.
+
+Context about this user: gender = ${session.gender || "not specified"}, age = ${session.age || "not specified"}. Use this only to make advice more relevant (e.g. age-appropriate care), never to make assumptions beyond what's stated.`;
+
+async function getAIHealthResponse(userText, lang, session) {
+  if (!GROQ_API_KEY) return null; // no key configured -> caller falls back to local dataset
+
+  try {
+    const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${GROQ_API_KEY}`,
+      },
+      body: JSON.stringify({
+        model: GROQ_MODEL,
+        max_tokens: 700,
+        messages: [
+          { role: "system", content: MEDIBOT_SYSTEM_PROMPT(lang, session) },
+          { role: "user", content: userText },
+        ],
+      }),
+    });
+
+    if (!response.ok) {
+      console.error("Groq API error:", response.status, await response.text());
+      return null;
+    }
+
+    const data = await response.json();
+    const reply = data.choices?.[0]?.message?.content?.trim();
+    return reply || null;
+  } catch (err) {
+    console.error("Groq API request failed:", err);
+    return null; // graceful fallback
+  }
+}
+
+// ---------------------------------------------------------------------------
 // Route handlers
 // ---------------------------------------------------------------------------
 function handleConfig(req, res) {
@@ -128,7 +196,7 @@ function handleSessionStart(req, res, body) {
   });
 }
 
-function handleChat(req, res, body) {
+async function handleChat(req, res, body) {
   const { sessionId, message, lang } = body || {};
   const session = getSession(sessionId);
   if (lang) session.lang = lang;
@@ -152,13 +220,22 @@ function handleChat(req, res, body) {
     });
   }
 
+  session.stage = "followup";
+
+  // Cheap local check first — no need to spend an API call on obviously
+  // off-topic messages.
   if (!isHealthRelated(text)) {
     return sendJson(res, 200, { messages: [{ from: "bot", type: "text", text: t(L, "notHealthRelated") }] });
   }
 
-  const matches = matchDiseases(text);
-  session.stage = "followup";
+  // Try the free AI (Groq/Llama) first, if configured.
+  const aiReply = await getAIHealthResponse(text, L, session);
+  if (aiReply) {
+    return sendJson(res, 200, { messages: [{ from: "bot", type: "diagnosis", text: aiReply }] });
+  }
 
+  // Fallback: local rule-based keyword matcher (works with zero setup / no API key)
+  const matches = matchDiseases(text);
   if (matches.length === 0) {
     return sendJson(res, 200, { messages: [{ from: "bot", type: "text", text: t(L, "noMatchFound") }] });
   }
