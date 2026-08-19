@@ -21,12 +21,12 @@ const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
 
-const diseases = require("./diseases.json");
-const translations = require("./translations.json");
-const quickOptions = require("./quickOptions.json");
+const diseases = require("./data/diseases.json");
+const translations = require("./data/translations.json");
+const quickOptions = require("./data/quickOptions.json");
 
 const PORT = process.env.PORT || 3000;
-const FRONTEND_DIR = __dirname;
+const FRONTEND_DIR = path.join(__dirname, "frontend");
 
 // Set this as an environment variable (never hardcode it / commit it to GitHub).
 // Get a free key (no credit card) at https://console.groq.com
@@ -124,24 +124,49 @@ function formatDiseaseReply(list, lang) {
 }
 
 // ---------------------------------------------------------------------------
-// AI-powered health response (Groq's free API — Llama model)
+// Knowledge-base retrieval (RAG) — builds grounding context from our own
+// free, WHO-aligned diseases.json dataset for the AI to answer FROM,
+// instead of relying purely on its own general training knowledge.
 // ---------------------------------------------------------------------------
-const MEDIBOT_SYSTEM_PROMPT = (lang, session) => `You are MediBot, a friendly AI health assistant embedded in a website chat widget.
+function buildKnowledgeContext(matches, lang) {
+  if (!matches || matches.length === 0) return null;
+  return matches
+    .slice(0, 3)
+    .map((d) => {
+      const name = d.name[lang] || d.name.en;
+      const summary = d.summary[lang] || d.summary.en;
+      const prevention = d.prevention[lang] || d.prevention.en;
+      const medicines = d.medicines.join("; ");
+      return `### ${name}\nSummary: ${summary}\nCommonly suggested care: ${medicines}\nPrevention: ${prevention}`;
+    })
+    .join("\n\n");
+}
+
+// ---------------------------------------------------------------------------
+// AI-powered health response (Groq's free API — Llama model), grounded via
+// RAG on our own knowledge base when a relevant entry is found.
+// ---------------------------------------------------------------------------
+const MEDIBOT_SYSTEM_PROMPT = (lang, session, knowledgeContext) => `You are MediBot, a friendly AI health assistant embedded in a website chat widget.
 
 STRICT RULES:
 - Only discuss health, symptoms, common illnesses, and general wellness. If the user's message is not health-related, politely say you can only help with health-related questions and nothing else.
 - You are NOT a doctor and must never claim to give a medical diagnosis. Always frame answers as general information, not a diagnosis.
-- Base your guidance on general public-health knowledge consistent with WHO and mainstream medical guidance for common conditions.
 - For chronic or serious conditions (diabetes, high blood pressure, heart issues, cancer symptoms, mental health crises, anything needing lab tests or prescription-only medication), do NOT suggest specific drug names or dosages — instead clearly say to consult a licensed doctor.
-- For common, everyday, non-emergency conditions (cold, flu, mild fever, headache, indigestion, minor cuts, common infections), you may suggest general over-the-counter self-care measures, but never give exact prescription dosages.
+- For common, everyday, non-emergency conditions, you may suggest general over-the-counter self-care measures, but never give exact prescription dosages.
 - Keep answers concise: under ~180 words, warm tone, a few relevant emoji, no walls of text.
 - Structure your answer roughly as: 1) what it could commonly be (not a diagnosis) 2) general self-care/OTC guidance 3) 1-2 prevention tips 4) when to see a doctor. Skip sections that don't apply.
 - End by asking if there's any other symptom they'd like to check.
 - Always reply in ${LANG_NAMES[lang] || "English"}, regardless of what language the user typed in.
 
+${
+  knowledgeContext
+    ? `You have the following VERIFIED entries from MediBot's own curated health knowledge base that match this query. Base your answer primarily on this information — treat it as your source of truth and lightly mention it comes from MediBot's health database:\n\n${knowledgeContext}\n\nIf the user's message also touches on something outside this reference info, you may add brief general safety guidance, but prioritize the reference info above for anything it covers.`
+    : `No entry in MediBot's curated knowledge base matched this query specifically. Answer using your own general medical knowledge, but be clear this is general guidance (not from a verified database entry), and keep it appropriately cautious.`
+}
+
 Context about this user: gender = ${session.gender || "not specified"}, age = ${session.age || "not specified"}. Use this only to make advice more relevant (e.g. age-appropriate care), never to make assumptions beyond what's stated.`;
 
-async function getAIHealthResponse(userText, lang, session) {
+async function getAIHealthResponse(userText, lang, session, knowledgeContext) {
   if (!GROQ_API_KEY) return null; // no key configured -> caller falls back to local dataset
 
   try {
@@ -155,7 +180,7 @@ async function getAIHealthResponse(userText, lang, session) {
         model: GROQ_MODEL,
         max_tokens: 700,
         messages: [
-          { role: "system", content: MEDIBOT_SYSTEM_PROMPT(lang, session) },
+          { role: "system", content: MEDIBOT_SYSTEM_PROMPT(lang, session, knowledgeContext) },
           { role: "user", content: userText },
         ],
       }),
@@ -228,14 +253,18 @@ async function handleChat(req, res, body) {
     return sendJson(res, 200, { messages: [{ from: "bot", type: "text", text: t(L, "notHealthRelated") }] });
   }
 
-  // Try the free AI (Groq/Llama) first, if configured.
-  const aiReply = await getAIHealthResponse(text, L, session);
+  // RAG retrieval step: find relevant entries in our own free knowledge base
+  // BEFORE calling the AI, so the AI can answer grounded on them.
+  const matches = matchDiseases(text);
+  const knowledgeContext = buildKnowledgeContext(matches, L);
+
+  // Try the free AI (Groq/Llama), grounded on the retrieved context, if configured.
+  const aiReply = await getAIHealthResponse(text, L, session, knowledgeContext);
   if (aiReply) {
     return sendJson(res, 200, { messages: [{ from: "bot", type: "diagnosis", text: aiReply }] });
   }
 
   // Fallback: local rule-based keyword matcher (works with zero setup / no API key)
-  const matches = matchDiseases(text);
   if (matches.length === 0) {
     return sendJson(res, 200, { messages: [{ from: "bot", type: "text", text: t(L, "noMatchFound") }] });
   }
