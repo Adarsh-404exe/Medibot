@@ -189,20 +189,8 @@
   }
 
   function renderQuickOptions() {
-    if (stage !== "ask_problem" && stage !== "followup") return;
+    // Quick-symptom suggestion chips disabled per request — keep chat input clean.
     el.quickRow.innerHTML = "";
-    const label = document.createElement("div");
-    label.className = "chip-row-label";
-    label.textContent = tr("quickOptionsLabel");
-    el.quickRow.appendChild(label);
-    CONFIG.quickOptions.forEach((opt) => {
-      const chip = document.createElement("button");
-      chip.type = "button";
-      chip.className = "chip";
-      chip.innerHTML = `<span>${opt.emoji}</span> ${opt.label[currentLang] || opt.label.en}`;
-      chip.addEventListener("click", () => handleUserTurn(opt.query[currentLang] || opt.query));
-      el.quickRow.appendChild(chip);
-    });
     hideQuickOptions();
   }
 
@@ -364,5 +352,117 @@
     window.speechSynthesis.speak(utterance);
   }
 
+  // ---------------------------------------------------------------------
+  // Nearby Hospitals (free — browser Geolocation + OpenStreetMap Overpass API)
+  // ---------------------------------------------------------------------
+  function setupHospitalFinder() {
+    const btn = document.getElementById("find-hospitals-btn");
+    const statusEl = document.getElementById("hospitals-status");
+    const resultsEl = document.getElementById("hospitals-results");
+    if (!btn) return;
+
+    btn.addEventListener("click", () => {
+      if (!("geolocation" in navigator)) {
+        statusEl.textContent = "Your browser doesn't support location access.";
+        return;
+      }
+      resultsEl.innerHTML = "";
+      statusEl.innerHTML = `<span class="spinner"></span> Getting your location...`;
+      btn.disabled = true;
+
+      navigator.geolocation.getCurrentPosition(
+        async (pos) => {
+          const { latitude, longitude } = pos.coords;
+          statusEl.innerHTML = `<span class="spinner"></span> Searching nearby hospitals...`;
+          try {
+            const hospitals = await fetchNearbyHospitals(latitude, longitude);
+            renderHospitals(hospitals, latitude, longitude);
+          } catch (e) {
+            statusEl.textContent = "Couldn't fetch nearby hospitals right now. Please try again.";
+          } finally {
+            btn.disabled = false;
+          }
+        },
+        () => {
+          statusEl.textContent = "Location access denied. Please allow location access and try again.";
+          btn.disabled = false;
+        },
+        { timeout: 10000 }
+      );
+    });
+  }
+
+  async function fetchNearbyHospitals(lat, lon) {
+    const radius = 6000; // meters
+    const query = `[out:json][timeout:15];
+      (
+        node["amenity"="hospital"](around:${radius},${lat},${lon});
+        way["amenity"="hospital"](around:${radius},${lat},${lon});
+      );
+      out center 12;`;
+
+    const response = await fetch("https://overpass-api.de/api/interpreter", {
+      method: "POST",
+      body: "data=" + encodeURIComponent(query),
+    });
+    if (!response.ok) throw new Error("Overpass API request failed");
+    const data = await response.json();
+
+    return (data.elements || [])
+      .map((el2) => {
+        const elLat = el2.lat || el2.center?.lat;
+        const elLon = el2.lon || el2.center?.lon;
+        if (!elLat || !elLon) return null;
+        return {
+          name: el2.tags?.name || "Hospital",
+          lat: elLat,
+          lon: elLon,
+          address: [el2.tags?.["addr:street"], el2.tags?.["addr:city"]].filter(Boolean).join(", "),
+          distanceKm: haversineDistance(lat, lon, elLat, elLon),
+        };
+      })
+      .filter(Boolean)
+      .sort((a, b) => a.distanceKm - b.distanceKm)
+      .slice(0, 8);
+  }
+
+  function haversineDistance(lat1, lon1, lat2, lon2) {
+    const R = 6371;
+    const dLat = ((lat2 - lat1) * Math.PI) / 180;
+    const dLon = ((lon2 - lon1) * Math.PI) / 180;
+    const a =
+      Math.sin(dLat / 2) ** 2 +
+      Math.cos((lat1 * Math.PI) / 180) * Math.cos((lat2 * Math.PI) / 180) * Math.sin(dLon / 2) ** 2;
+    return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  }
+
+  function renderHospitals(hospitals, userLat, userLon) {
+    const statusEl = document.getElementById("hospitals-status");
+    const resultsEl = document.getElementById("hospitals-results");
+
+    if (hospitals.length === 0) {
+      statusEl.textContent = "No hospitals found nearby. Try expanding your search area manually on a map.";
+      return;
+    }
+    statusEl.textContent = `Found ${hospitals.length} hospital(s) near you:`;
+    resultsEl.innerHTML = "";
+    hospitals.forEach((h) => {
+      const card = document.createElement("div");
+      card.className = "hospital-card";
+      card.innerHTML = `
+        <span class="hospital-distance">${h.distanceKm.toFixed(1)} km away</span>
+        <h4>${escapeHtml(h.name)}</h4>
+        <p class="hospital-address">${escapeHtml(h.address) || "Address not listed"}</p>
+        <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&origin=${userLat},${userLon}&destination=${h.lat},${h.lon}">Get Directions ↗</a>
+      `;
+      resultsEl.appendChild(card);
+    });
+  }
+
+  function escapeHtml(str) {
+    return (str || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  }
+
+  setupHospitalFinder();
   init();
 })();
