@@ -31,7 +31,7 @@ const FRONTEND_DIR = __dirname;
 // Set this as an environment variable (never hardcode it / commit it to GitHub).
 // Get a free key (no credit card) at https://console.groq.com
 const GROQ_API_KEY = process.env.GROQ_API_KEY;
-const GROQ_MODEL = "llama-3.3-70b-versatile"; // free, high quality, generous rate limits
+const GROQ_MODEL = "openai/gpt-oss-120b"; // free, current production model on Groq
 
 const LANG_NAMES = { en: "English", hi: "Hindi", es: "Spanish", fr: "French" };
 
